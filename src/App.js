@@ -22,7 +22,7 @@ function App() {
             <img src={item.images[4]} alt="" />
             <p>{item.price}</p>
             <p>{item.description}</p>
-            
+
           </li>
           ) 
         })}
@@ -30,5 +30,6 @@ function App() {
     </div>
   );
 }
+
 
 export default App;
