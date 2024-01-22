@@ -1,25 +1,35 @@
-import logo from './logo.svg';
 import './App.css';
+import { useGetAllProductsQuery } from './store/productsApi';
+
+
 
 function App() {
+
+  const {data, isLoading, error, isError} = useGetAllProductsQuery();
+  console.log("data", data)
+
+
+  if (isLoading) return <h1>Loading...</h1>
+  if (isError) return <p>{error}</p>
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div>
+        {data && 
+          data.products.map((item) => {
+          return (
+          <li>
+            {item.title} 
+            <img src={item.images[4]} alt="" />
+            <p>{item.price}</p>
+            <p>{item.description}</p>
+
+          </li>
+          ) 
+        })}
+      </div>
     </div>
   );
 }
+
 
 export default App;
