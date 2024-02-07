@@ -22,7 +22,7 @@ function App() {
             <img src={item.images[4]} alt="" />
             <p>{item.price}</p>
             <p>{item.description}</p>
-
+            <p>{item.discount}</p>
           </li>
           ) 
         })}
